@@ -1,1 +1,117 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DebugHour | Fix Code Faster</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #f5f7ff;
+    }
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #252d43;
+    }
+    .logo { font-size: 24px; font-weight: bold; color: #72f5c8; }
+    header a { color: #dce3f7; text-decoration: none; }
+    main { max-width: 1000px; margin: auto; padding: 55px 20px; }
+    .hero { text-align: center; margin-bottom: 40px; }
+    .tag { color: #72f5c8; letter-spacing: 2px; font-size: 12px; }
+    h1 { font-size: clamp(34px, 7vw, 58px); margin: 18px 0; }
+    .sub { color: #aab5ce; line-height: 1.7; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 18px; }
+    .card {
+      background: #141c30; border: 1px solid #2a3550;
+      border-radius: 16px; padding: 24px;
+    }
+    .number { color: #72f5c8; font-size: 13px; }
+    h2 { font-size: 21px; }
+    .card p { color: #aab5ce; line-height: 1.6; }
+    label { display: block; margin: 20px 0 10px; font-weight: bold; }
+    textarea {
+      width: 100%; min-height: 145px; background: #080d19;
+      color: white; border: 1px solid #35415d;
+      border-radius: 10px; padding: 14px; font: 14px monospace;
+    }
+    button {
+      background: #72f5c8; color: #09131a; border: 0;
+      padding: 13px 18px; border-radius: 9px;
+      font-weight: bold; cursor: pointer; margin-top: 12px;
+    }
+    #result { white-space: pre-wrap; line-height: 1.6; color: #dce3f7; }
+    footer { text-align: center; color: #8793ad; padding: 30px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">⌘ DebugHour</div>
+    <a href="#debugger">AI Debugger ↗</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="tag">CODE. DEBUG. LEARN.</div>
+      <h1>Errors happen.<br><span style="color:#72f5c8">We help you fix them.</span></h1>
+      <p class="sub">Your coding journey deserves a faster way to solve problems.<br>Debug smarter, learn faster, build better.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <div class="number">TIER 01</div>
+        <h2>⚡ Quick Debug</h2>
+        <p>Describe your coding error and get a guided starting point.</p>
+      </div>
+      <div class="card">
+        <div class="number">TIER 02</div>
+        <h2>📚 Learn & Grow</h2>
+        <p>Build your skills with tutorials and debugging lessons.</p>
+      </div>
+      <div class="card">
+        <div class="number">TIER 03</div>
+        <h2>🤝 Expert Help</h2>
+        <p>A concept for connecting learners with coding mentors.</p>
+      </div>
+    </section>
+
+    <section class="card" id="debugger" style="margin-top:25px">
+      <div class="number">TRY THE DEMO</div>
+      <h2>Code Debugging Assistant</h2>
+      <p>Paste your code or error below to get a basic, local demo response.</p>
+      <label for="code">Your code or error</label>
+      <textarea id="code" placeholder="Paste your code or error message here..."></textarea>
+      <button onclick="debugCode()">Analyze input</button>
+      <div id="result" style="margin-top:20px"></div>
+    </section>
+  </main>
+
+  <footer>DebugHour · A student project prototype</footer>
+
+  <script>
+    function debugCode() {
+      const input = document.getElementById('code').value.trim();
+      const result = document.getElementById('result');
+      if (!input) {
+        result.textContent = 'Please paste some code or an error message first.';
+        return;
+      }
+      result.textContent =
+        'Debugging checklist:\n\n' +
+        '1. Read the first error message carefully.\n' +
+        '2. Check spelling, brackets, quotes and semicolons.\n' +
+        '3. Check variable names and input values.\n' +
+        '4. Search the error message in the documentation for your language.\n\n' +
+        'Demo limitation: this prototype does not use a real AI model yet.\n\n' +
+        'Your input has been received locally. Add a secure AI backend to get personalized fixes.';
+    }
+  </script>
+</body>
+</html>
+
